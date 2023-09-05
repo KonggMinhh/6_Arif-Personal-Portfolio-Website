@@ -30,6 +30,7 @@
         --opacity-active: 1;
         --visibility-active: visible;
         --bottom-hover: 30%;
+        --scale-active: 1.15;
     }
 
     .gallery__more {
@@ -117,8 +118,8 @@
         inset: 0;
         background-color: rgba(0, 0, 0, 0.6);
         z-index: 99;
-        opacity: 0;
-        visibility: hidden;
+        opacity: var(--opacity-active, 0);
+        visibility: var(--visibility-active, hidden);
         transition: 0.5s ease-in-out;
     }
     @supports (backdrop-filter: blur(5px)) or
@@ -133,20 +134,19 @@
         inset: 0 0 0 30%;
         background: var(--secondary-color);
         z-index: 999;
-        transform: translateX(100%);
+        transform: var(--transform-active, translateX(100%));
         transition: 0.5s ease-in-out;
     }
-    .header__mobile-checkbox {
-        display: none;
+    body:has(#openMenu:target) .header__mobile .header__mobile-overlay {
+        --opacity-active: 1;
+        --visibility-active: visible;
     }
-    .header__mobile-checkbox:checked ~ .header__mobile-overlay {
-        opacity: 1;
-        visibility: visible;
+    body:has(#openMenu:target) .header__mobile .header__menu-drawer {
+        --transform-active: translateX(0);
     }
-    .header__mobile-checkbox:checked ~ .header__menu-drawer {
-        transform: translateX(0);
+    html:has(#openMenu:target) body {
+        overflow: hidden;
     }
-
     .header__menu-inner {
         position: relative;
         padding: 20px;
@@ -167,8 +167,20 @@
         font-size: 2.5rem;
         cursor: pointer;
     }
+    .header__menu-inner .icon-close,
     .header__menu-inner .icon-close:hover {
         color: var(--primary-color);
+    }
+    .header__menu-inner .navbar__mobile {
+        display: block;
+    }
+    .navbar__mobile .navbar__link-mobile::before,
+    .navbar__mobile .navbar__link-mobile::after {
+        display: none;
+    }
+    .navbar__mobile .navbar__link-mobile {
+        padding: 20px 0;
+        display: block;
     }
     /* * * * * Trust * * * * * */
     .trust__inner-mobile {
@@ -578,6 +590,10 @@
     .about__play {
         --width: 77px;
         --height: 77px;
+    }
+    .about__intro {
+        padding: 7px 21px;
+        font-size: 1.2rem;
     }
     /* * * * * Testimonial * * * * * */
     .testimonial {

@@ -27,6 +27,7 @@ button {
 }
 html {
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 body {
     font-size: 1.6rem;
@@ -171,9 +172,10 @@ p {
     color: var(--primary-color);
 }
 .navbar__link {
+    position: relative;
     display: inline-block;
     padding: 8px 22px;
-    color: var(--gray-color);
+    color: var(--color-active, var(--gray-color));
     font-size: 1.8rem;
     transition: color 0.1s ease-out;
 }
@@ -187,6 +189,36 @@ p {
 }
 .navbar__link:hover {
     color: var(--primary-color);
+    font-weight: 600;
+}
+button {
+    display: none;
+}
+.navbar__link::after {
+    position: absolute;
+    content: "";
+    display: inline-block;
+    bottom: -4px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: var(--width, 30%);
+    opacity: var(--opacity, 0);
+    height: 2px;
+    border-radius: 90px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease-in, opacity 0.3s ease-in;
+}
+.navbar__link:hover::after {
+    --width: 100%;
+    --opacity: 1;
+}
+body:has(#project:target) .navbar__link-project,
+body:has(#journey:target) .navbar__link-journey,
+body:has(#service:target) .navbar__link-service,
+body:has(#contact:target) .navbar__link-contact {
+    --width: 100%;
+    --opacity: 1;
+    --color-active: var(--primary-color);
     font-weight: 600;
 }
 .navbar__item:first-child .navbar__link {
@@ -216,6 +248,7 @@ p {
 .hero__content {
     position: relative;
     z-index: 1;
+    padding-bottom: 43px;
 }
 .hero__heading {
     font-weight: 500;
@@ -545,6 +578,19 @@ p {
 .about__play:hover .about__play-icon {
     color: var(--secondary-color);
 }
+.about__intro {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    display: inline-block;
+    padding: 16px 28px;
+    background-color: var(--white-color);
+    color: var(--gray-color);
+    font-size: 1.8rem;
+    font-weight: 700;
+    line-height: 3rem;
+    text-transform: uppercase;
+}
 /* * * * * Testimonial * * * * */
 .testimonial {
     position: relative;
@@ -772,11 +818,14 @@ p {
 .gallery__image {
     position: relative;
     display: inline-block;
+    overflow: hidden;
 }
 .gallery__img {
     width: 100%;
     height: 529px;
     object-fit: cover;
+    scale: var(--scale-active, 1);
+    transition: all 0.5s ease-in-out;
 }
 /* * * * * * CTA * * * * * * */
 .action {

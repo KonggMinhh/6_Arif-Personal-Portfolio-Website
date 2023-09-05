@@ -112,11 +112,8 @@
                             href="mailto:hi@arif.interactive"
                             >hi@arif.interactive</a
                         >
-                        <label
-                            for="header__mobile-checkbox"
-                            class="header__toggle-mobile"
-                        >
-                        </label>
+                        <!-- Toggle menu mobile -->
+                        <a class="header__toggle-mobile" href="#openMenu"></a>
                     </div>
                     <!-- Logo -->
                     <a href="#" class="header__logo">
@@ -128,61 +125,58 @@
                     </a>
                     <!-- Navigation -->
                     <nav class="navbar">
-                        <ul class="navbar__list d-flex flex-align">
+                        <ul
+                            id="navbar__list-pc"
+                            class="navbar__list d-flex flex-align"
+                        >
                             <li class="navbar__item">
                                 <a
-                                    href="#"
-                                    class="navbar__link"
+                                    href="#project"
+                                    class="navbar__link navbar__link-mobile navbar__link-project"
                                     navbar-link="Projects"
-                                    >Projects</a
-                                >
+                                    >Projects
+                                </a>
                             </li>
                             <li class="navbar__item">
                                 <a
-                                    href="#"
-                                    class="navbar__link"
+                                    href="#journey"
+                                    class="navbar__link navbar__link-mobile navbar__link-journey"
                                     navbar-link="Journey"
-                                    >Journey</a
-                                >
+                                    >Journey
+                                </a>
                             </li>
                             <li class="navbar__item">
                                 <a
-                                    href="#"
-                                    class="navbar__link"
+                                    href="#service"
+                                    class="navbar__link navbar__link-mobile navbar__link-service"
                                     navbar-link="Service"
-                                    >Service</a
-                                >
+                                    >Service
+                                </a>
                             </li>
                             <li class="navbar__item">
                                 <a
-                                    href="#"
-                                    class="navbar__link"
+                                    href="#contact"
+                                    class="navbar__link navbar__link-mobile navbar__link-contact"
                                     navbar-link="Contact"
-                                    >Contact</a
-                                >
+                                    >Contact
+                                </a>
                             </li>
                         </ul>
                     </nav>
                 </div>
             </div>
         </header>
+        <!-- Open & Close Menu -->
+        <div hidden id="openMenu"></div>
+        <div hidden id="closeMenu"></div>
         <!-- Header Table & PC -->
         <header class="header__mobile">
-            <!-- Input -->
-            <input
-                hidden
-                type="checkbox"
-                class="header__mobile-checkbox"
-                id="header__mobile-checkbox"
-            />
             <!-- Overlay -->
-            <label
-                for="header__mobile-checkbox"
-                class="header__mobile-overlay"
-            ></label>
+            <a href="#closeMenu" class="header__mobile-overlay"></a>
             <!-- Menu drawer -->
             <div class="header__menu-drawer">
                 <div class="header__menu-inner">
+                    <!-- Logo -->
                     <a href="#" class="header__logo">
                         <img
                             class="header__logo-img"
@@ -191,7 +185,7 @@
                         />
                     </a>
                     <!-- Close -->
-                    <label for="header__mobile-checkbox">
+                    <a href="#closeMenu">
                         <svg
                             class="icon-close"
                             xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +197,11 @@
                                 d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"
                             />
                         </svg>
-                    </label>
+                    </a>
+                    <!-- Navigation -->
+                    <nav class="navbar navbar__mobile">
+                        <ul id="navbar__list-mobile" class="navbar__list"></ul>
+                    </nav>
                 </div>
             </div>
         </header>
@@ -386,7 +384,7 @@
                 </div>
             </section>
             <!-- Services -->
-            <section class="services">
+            <section id="service" class="services">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 offset-lg-3 col-md-12 col-12">
@@ -479,7 +477,7 @@
                 </div>
             </section>
             <!-- Work -->
-            <section class="work">
+            <section id="project" class="work">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-5 col-md-12 col-12">
@@ -632,7 +630,7 @@
                 </div>
             </section>
             <!-- About -->
-            <section class="about">
+            <section id="journey" class="about">
                 <div class="container">
                     <!-- TOP -->
                     <div class="row">
@@ -713,6 +711,7 @@
                                 />
                             </svg>
                         </a>
+                        <a href="#!" class="about__intro">Intro Video</a>
                     </div>
                 </div>
             </section>
@@ -1303,7 +1302,7 @@
                 </div>
             </section>
             <!-- CTA -->
-            <section class="action">
+            <section id="contact" class="action">
                 <div class="container">
                     <div class="action__inner">
                         <div class="row">
@@ -1376,7 +1375,7 @@
                             <li class="navbar__item">
                                 <a
                                     href="#"
-                                    class="navbar__link navbar__link-footer"
+                                    class="navbar__link navbar__link-mobile navbar__link-footer"
                                     navbar-link="Projects"
                                     >Projects</a
                                 >
@@ -1384,7 +1383,7 @@
                             <li class="navbar__item">
                                 <a
                                     href="#"
-                                    class="navbar__link navbar__link-footer"
+                                    class="navbar__link navbar__link-mobile navbar__link-footer"
                                     navbar-link="Journey"
                                     >Journey</a
                                 >
@@ -1392,7 +1391,7 @@
                             <li class="navbar__item">
                                 <a
                                     href="#"
-                                    class="navbar__link navbar__link-footer"
+                                    class="navbar__link navbar__link-mobile navbar__link-footer"
                                     navbar-link="Service"
                                     >Service</a
                                 >
@@ -1400,7 +1399,7 @@
                             <li class="navbar__item">
                                 <a
                                     href="#"
-                                    class="navbar__link navbar__link-footer"
+                                    class="navbar__link navbar__link-mobile navbar__link-footer"
                                     navbar-link="Contact"
                                     >Contact</a
                                 >
@@ -1423,5 +1422,7 @@
                 </div>
             </div>
         </footer>
+
+        <script src="./assest/js/main.js"></script>
     </body>
 </html>
